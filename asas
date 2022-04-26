@@ -1,0 +1,34 @@
+
+#include <vector>
+#include <set>
+#include<algorithm>
+#include<iostream>
+using namespace std;
+
+set<int>::const_iterator FindNearestElement(
+    const set<int>& numbers,
+    int border){
+        
+        auto p=equal_range(begin(numbers), end(numbers),border);
+        if(p.first!=p.second){
+            std::cout<<"not equal iter";
+            return p.first;
+            
+        }else{
+            std::cout<<"equal iter"<<std::endl;
+            
+            if(p.first==begin(numbers)){
+            return p.first;    
+            }
+            
+        }
+    }
+    
+    
+int main() {
+  set<int> numbers = {1,3,5,6,77};
+  cout <<      *FindNearestElement(numbers,-5);
+      
+;
+  return 0;
+}
